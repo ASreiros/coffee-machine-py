@@ -22,6 +22,16 @@ def teapod():
     return turn_off()
 
 
+def fill():
+    for res in resources:
+        flag = False
+        while not flag:
+            add = input(f"Please enter how much {'gr' if res == 'coffee' else 'ml' } of {res} you want to add:  ")
+            if add.isdigit():
+                resources[res] += int(add)
+                flag = True
+            else:
+                print("That is not a valid number.")
 def pour_coffee(coffee):
     """Pours coffee. Adjust resources. End step"""
     bank = resources.get("money", 0)
